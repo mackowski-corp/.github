@@ -1,0 +1,28 @@
+# .github/config.yaml
+
+# Configuration for access control. This determines who can administer
+# the 10x GitHub Policies application.
+access_control:
+  # The slug of the GitHub team whose members are authorized to manage this app.
+  # Example: "octo-org/admins"
+  authorized_team: "your-github-team-slug"
+
+# A list of policies to enforce across the organization's repositories.
+policies:
+  # Policy to enforce branch protection rules.
+  - type: "branch_protection"
+    action: "enforce"
+    # Additional settings for this policy could go here.
+
+  # Policy to ensure a CODEOWNERS file exists.
+  - type: "code_owners"
+    action: "require"
+
+  # Policy to disable "delete on push" for protected branches.
+  - type: "no_delete_on_push"
+    action: "enforce"
+
+  # Policy to archive repositories that are inactive.
+  - type: "archive_inactive"
+    action: "archive"
+    # You could add parameters like "days_inactive: 90"
