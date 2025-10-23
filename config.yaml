@@ -1,9 +1,9 @@
 # .github/config.yaml
 
 # Configuration for access control. Only members of this team can view the dashboard.
-accessControl:
+access_control:
   # The slug of the GitHub team authorized to access the application.
-  authorizedTeam: "your-authorized-team-slug"
+  authorized_team: "your-authorized-team-slug"
 
 # A list of policies to enforce across all repositories in the organization.
 policies:
