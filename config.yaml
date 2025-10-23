@@ -1,26 +1,25 @@
 # .github/config.yaml
 
-# Configuration for access control. This determines who can administer
-# the 10x GitHub Policies application.
-access_control:
-  # The slug of the GitHub team whose members are authorized to manage this app.
-  # Example: "octo-org/admins"
-  authorized_team: "your-github-team-slug"
+# Configuration for access control. Only members of this team can view the dashboard.
+accessControl:
+  # The slug of the GitHub team authorized to access the application.
+  authorizedTeam: "your-authorized-team-slug"
 
-# A list of policies to enforce across the organization's repositories.
+# A list of policies to enforce across all repositories in the organization.
 policies:
-  - name: 'Check for AGENTS.md'
-    type: 'has_agents_md'
-    action: 'create-issue' # 'create-issue' or 'archive-repo'
-    issue_details:
-      title: 'Compliance: AGENTS.md file is missing'
-      body: 'This repository is missing the AGENTS.md file in its root directory. Please add this file to comply with organization standards.'
-      labels: ['policy-violation', 'documentation']
+  - type: "has_agents_md"
+    action: "create_issue"
+    # Additional parameters for the action can be added here if needed.
+    # issueTitle: "Compliance Violation: AGENTS.md file is missing"
+    # issueBody: "The AGENTS.md file was not found in this repository. Please create it to comply with organization policy."
+    # issueLabels: ["compliance", "documentation"]
 
-  - name: 'Check for catalog-info.yaml'
-    type: 'has_catalog_info_yaml'
-    action: 'create-issue'
-    issue_details:
-      title: 'Compliance: catalog-info.yaml is missing'
-      body: 'This repository is missing the catalog-info.yaml file. This file is required for backstage.io service discovery.'
-      labels: ['policy-violation', 'backstage']
+  - type: "has_catalog_info_yaml"
+    action: "create_issue"
+    # issueTitle: "Compliance Violation: catalog-info.yaml is missing"
+    # issueBody: "The catalog-info.yaml file was not found. This file is required for Backstage service discovery."
+    # issueLabels: ["compliance", "backstage"]
+
+  - type: "correct_workflow_permissions"
+    action: "log_only"
+    # This policy will only log the violation and not take direct action.
