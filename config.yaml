@@ -9,20 +9,18 @@ access_control:
 
 # A list of policies to enforce across the organization's repositories.
 policies:
-  # Policy to enforce branch protection rules.
-  - type: "branch_protection"
-    action: "enforce"
-    # Additional settings for this policy could go here.
+  - name: 'Check for AGENTS.md'
+    type: 'has_agents_md'
+    action: 'create-issue' # 'create-issue' or 'archive-repo'
+    issue_details:
+      title: 'Compliance: AGENTS.md file is missing'
+      body: 'This repository is missing the AGENTS.md file in its root directory. Please add this file to comply with organization standards.'
+      labels: ['policy-violation', 'documentation']
 
-  # Policy to ensure a CODEOWNERS file exists.
-  - type: "code_owners"
-    action: "require"
-
-  # Policy to disable "delete on push" for protected branches.
-  - type: "no_delete_on_push"
-    action: "enforce"
-
-  # Policy to archive repositories that are inactive.
-  - type: "archive_inactive"
-    action: "archive"
-    # You could add parameters like "days_inactive: 90"
+  - name: 'Check for catalog-info.yaml'
+    type: 'has_catalog_info_yaml'
+    action: 'create-issue'
+    issue_details:
+      title: 'Compliance: catalog-info.yaml is missing'
+      body: 'This repository is missing the catalog-info.yaml file. This file is required for backstage.io service discovery.'
+      labels: ['policy-violation', 'backstage']
