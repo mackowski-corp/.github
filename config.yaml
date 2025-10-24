@@ -3,7 +3,7 @@
 # Access control: Specify the GitHub team authorized to access the dashboard.
 # Format: 'organization-slug/team-slug'
 access_control:
-  authorized_team: 'appsec'
+  authorized_team: 'mackowski-corp/appsec'
 
 # Policies: Define the rules to enforce across your organization's repositories.
 policies:
