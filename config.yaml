@@ -25,4 +25,4 @@ policies:
       
   - name: 'Verify Workflow Permissions'
     type: 'correct_workflow_permissions'
-    action: 'log_only'  # This will only log violations without creating issues
+    action: 'archive-repo' #'log_only'  # This will only log violations without creating issues
