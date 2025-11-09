@@ -9,7 +9,7 @@ access_control:
 policies:
   - name: 'Check for AGENTS.md'
     type: 'has_agents_md'
-    action: 'create_issue'  # Use underscore format
+    action: ['create_issue', 'log_only']
     issue_details:
       title: 'Compliance: AGENTS.md file is missing'
       body: 'This repository is missing the AGENTS.md file in its root directory. Please add this file to comply with organization standards.'
