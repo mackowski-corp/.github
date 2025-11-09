@@ -17,7 +17,7 @@ policies:
 
   - name: 'Check for catalog-info.yaml'
     type: 'has_catalog_info_yaml'
-    action: 'create_issue'
+    action: ['create_issue', 'comment-on-prs']
     issue_details:
       title: 'Compliance: catalog-info.yaml is missing'
       body: 'This repository is missing the catalog-info.yaml file. This file is required for backstage.io service discovery.'
