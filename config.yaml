@@ -26,3 +26,9 @@ policies:
   - name: 'Verify Workflow Permissions'
     type: 'correct_workflow_permissions'
     action: 'log_only' #'archive-repo'  # This will only log violations without creating issues
+
+  - name: 'Owner is specified in catalog-info.yaml'
+    type: 'catalog_info_has_owner'
+    action: 'log_only' # This will only log violations without creating issues
+
+    
